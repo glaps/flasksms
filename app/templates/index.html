@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% block content %}
+{%if error%}
+    <div class="row">
+        <div class="col-md-3 col-md-offset-3">
+            <h2 style="color: #b92c28">ERROR</h2>
+        </div>
+    </div>
+{%endif%}
+    <div class="jumbotron">
+        <h1>SendSMS {{mail}}</h1>
+    </div>
+    <div class="container">
+        <form id="data" role="form" method="post" enctype="multipart/form-data">
+            <br>
+            <div class="form-group">
+                <label for="mas">Maseg</label>
+                <input name="msg" type="text" id="mas" class="form-control" maxlength="160">
+            </div>
+            <br>
+            <div class="form-group">
+                <label>Number</label>
+                <textarea name="num" class="form-control" rows="3"></textarea>
+            </div>
+            <br>
+            <div class="form-group">
+                <label for="exampleInputFile"> or File input</label>
+                <input name="file" type="file" id="exampleInputFile">
+            </div>
+        </form>
+        <div class="row">
+            <button form="data" type="submit" class="btn btn-success">Отправить</button>
+            <a href="/index" class="btn btn-danger" role="button">Delet</a>
+        </div>
+    </div>
+{% endblock %}

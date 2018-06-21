@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container">
+    <h2>Send num</h2>
+    <h2>{{mail}}</h2>
+    <p>you msg = {{msg}}</p>
+    <p>total num = {{lens}}</p>
+    <div class="container">
+        <form id="data" class="form-horizontal" role="form" method="post">
+        </form>
+        <button form="data" name="remember" type="submit" class="btn btn-success">Отправить</button>
+        <a class="btn btn-danger btn-md" role="button" href="/index">Отмена</a>
+    </div>
+    <br>
+    <div class="row">
+
+        <table class="table table-bordered">
+            <thead>
+            <tr>
+                <th style="text-align: center">№</th>
+                <th style="text-align: center">num</th>
+                <th style="text-align: center">result</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% if numbers %}
+            {% set item = 1 %}
+            {%for i in numbers%}
+            <tr>
+                <td style="text-align: center">{{ loop.index }}</td>
+                <td style="text-align: center">{{i}}</td>
+                <td style="text-align: center">Find</td>
+                {% set item = item + 1 %}
+            </tr>
+            {%endfor%}
+            </tbody>
+            {% else %}
+            <tr>
+                <h1 style="color: #b92c28">ERROR</h1>
+            </tr>
+            {%endif%}
+        </table>
+    </div>
+</div>
+
+
+{% endblock %}
