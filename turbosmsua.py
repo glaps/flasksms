@@ -1,12 +1,11 @@
 # -*- coding: utf-8 -*-
 from suds.client import Client
-p={"http":"http://192.168.10.3:47050",
-    "https":"http://192.168.10.3:47050"}
+proxy={}
 
 class Turbosms:
 
     def __init__(self, login, password):
-        self.client = Client('http://turbosms.in.ua/api/wsdl.html',proxy=p)
+        self.client = Client('http://turbosms.in.ua/api/wsdl.html',proxy=proxy)
         auth_result = self.client.service.Auth(login, password)
 
         if auth_result != "Вы успешно авторизировались":
